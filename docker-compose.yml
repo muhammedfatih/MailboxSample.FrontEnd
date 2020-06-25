@@ -1,0 +1,11 @@
+version: "2.1"
+services:
+    react:
+        ports:
+            - "5004:8080"
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - ./package.json:/publish/package.json
+            - ./package-lock.json:/publish/package-lock.json
