@@ -5,7 +5,7 @@ export function authHeader() {
     let user = JSON.parse(localStorage.getItem('user'));
 
     if (user && user.token) {
-        return { 'Authorization': 'Bearer ' + Buffer.from(user.userName+":"+user.token).toString('base64') };
+        return { 'Authorization': 'Basic ' + Buffer.from(user.userName+":"+user.token).toString('base64') };
     } else {
         return {};
     }
