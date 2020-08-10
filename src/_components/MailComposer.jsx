@@ -8,9 +8,9 @@ class MailComposer extends React.Component {
 
         this.state = {
             mail: {
-                Subject: '',
-                Content: '',
-                ToUserName: ''
+                subject: '',
+                content: '',
+                toUserName: ''
             },
             submitted: false
         };
@@ -35,7 +35,7 @@ class MailComposer extends React.Component {
 
         this.setState({ submitted: true });
         const { mail } = this.state;
-        if (mail.Subject && mail.ToUserName) {
+        if (mail.subject && mail.toUserName) {
             this.props.create(mail);
         }
     }
@@ -47,23 +47,23 @@ class MailComposer extends React.Component {
             <div className="col-md-12">
                 <h2>Compose a mail</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
-                    <div className={'form-group' + (submitted && !mail.ToUserName ? ' has-error' : '')}>
-                        <label htmlFor="ToUserName">To</label>
-                        <input type="text" className="form-control" name="ToUserName" value={mail.ToUserName} onChange={this.handleChange} />
+                    <div className={'form-group' + (submitted && !mail.toUserName ? ' has-error' : '')}>
+                        <label htmlFor="toUserName">To</label>
+                        <input type="text" className="form-control" name="toUserName" value={mail.toUserName} onChange={this.handleChange} />
                         {submitted && !mail.ToUserName &&
                             <div className="help-block">To user name is required</div>
                         }
                     </div>
-                    <div className={'form-group' + (submitted && !mail.Subject ? ' has-error' : '')}>
-                        <label htmlFor="Subject">Subject</label>
-                        <input type="text" className="form-control" name="Subject" value={mail.Subject} onChange={this.handleChange} />
-                        {submitted && !mail.Subject &&
+                    <div className={'form-group' + (submitted && !mail.subject ? ' has-error' : '')}>
+                        <label htmlFor="subject">Subject</label>
+                        <input type="text" className="form-control" name="subject" value={mail.subject} onChange={this.handleChange} />
+                        {submitted && !mail.subject &&
                             <div className="help-block">Subject is required</div>
                         }
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="Content">Content</label>
-                        <textarea className="form-control" name="Content" value={mail.Content} onChange={this.handleChange}></textarea>
+                        <label htmlFor="content">Content</label>
+                        <textarea className="form-control" name="content" value={mail.content} onChange={this.handleChange}></textarea>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">Create</button>
